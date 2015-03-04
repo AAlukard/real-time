@@ -1,4 +1,4 @@
-package udacity.storm;
+package ua.sasha.realtime;
 
 import backtype.storm.Config;
 import backtype.storm.task.OutputCollector;
@@ -9,15 +9,17 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import org.apache.log4j.Logger;
-//import storm.starter.tools.NthLastModifiedTimeTracker;
-//import storm.starter.tools.SlidingWindowCounter;
-//import storm.starter.util.TupleHelpers;
-
-import udacity.storm.tools.*;
+import ua.sasha.realtime.tools.NthLastModifiedTimeTracker;
+import ua.sasha.realtime.tools.SlidingWindowCounter;
+import ua.sasha.realtime.tools.TupleHelpers;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+//import storm.starter.tools.NthLastModifiedTimeTracker;
+//import storm.starter.tools.SlidingWindowCounter;
+//import storm.starter.util.TupleHelpers;
 
 /**
  * This bolt performs rolling counts of incoming objects, i.e. sliding window based counting.

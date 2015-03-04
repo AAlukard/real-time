@@ -15,15 +15,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package udacity.storm;
+package ua.sasha.realtime;
 
 import backtype.storm.tuple.Tuple;
 import org.apache.log4j.Logger;
+import ua.sasha.realtime.tools.Rankable;
+import ua.sasha.realtime.tools.RankableObjectWithFields;
+
 //import storm.starter.tools.Rankable;
 //import storm.starter.tools.RankableObjectWithFields;
-
-import udacity.storm.tools.Rankable;
-import udacity.storm.tools.RankableObjectWithFields;
 
 /**
  * This bolt ranks incoming objects by their count.

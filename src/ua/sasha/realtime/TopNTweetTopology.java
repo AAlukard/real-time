@@ -1,22 +1,12 @@
-package udacity.storm;
+package ua.sasha.realtime;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
-import backtype.storm.spout.SpoutOutputCollector;
-import backtype.storm.task.OutputCollector;
-import backtype.storm.task.TopologyContext;
-import backtype.storm.testing.TestWordSpout;
-import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.TopologyBuilder;
-import backtype.storm.topology.base.BaseRichSpout;
-import backtype.storm.topology.base.BaseRichBolt;
 import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Tuple;
-import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 
-import udacity.storm.spout.RandomSentenceSpout;
 
 class TopNTweetTopology
 {
@@ -38,10 +28,10 @@ class TopNTweetTopology
 
     // now create the tweet spout with the credentials
     TweetSpout tweetSpout = new TweetSpout(
-        "[Your customer key]",
-        "[Your secret key]",
-        "[Your access token]",
-        "[Your access secret]"
+        "tEd0wagtb0USE9X5DQEA",
+        "UfF0vrUwvo8tzGtXw1KFm5ZkgWE7bCK9FClViOAF2KQ",
+        "1421353664-8naTIBPcOfFuuMKdZ0unHjfJR8kzb9NfxUqRRY5",
+        "Z3YhsxbAYSIGHyki3EoEOpE6NIUPr2xUB9FKsh4d3b4Go"
 
     );
 

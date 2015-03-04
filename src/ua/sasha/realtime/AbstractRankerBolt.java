@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package udacity.storm;
+package ua.sasha.realtime;
 
 import backtype.storm.Config;
 import backtype.storm.topology.BasicOutputCollector;
@@ -25,11 +25,8 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import org.apache.log4j.Logger;
-//import storm.starter.tools.Rankings;
-//import storm.starter.util.TupleHelpers;
-
-import udacity.storm.tools.Rankings;
-import udacity.storm.tools.TupleHelpers;
+import ua.sasha.realtime.tools.Rankings;
+import ua.sasha.realtime.tools.TupleHelpers;
 
 import java.util.HashMap;
 import java.util.Map;

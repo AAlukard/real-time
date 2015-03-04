@@ -15,13 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package udacity.storm;
+package ua.sasha.realtime;
 
 import backtype.storm.tuple.Tuple;
 import org.apache.log4j.Logger;
-//import storm.starter.tools.Rankings;
-
-import udacity.storm.tools.Rankings;
+import ua.sasha.realtime.tools.Rankings;
 
 /**
  * This bolt merges incoming {@link Rankings}.

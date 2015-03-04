@@ -1,4 +1,4 @@
-package udacity.storm.tools;
+package ua.sasha.realtime.tools;
 
 import backtype.storm.utils.Time;
 import org.apache.commons.collections.buffer.CircularFifoBuffer;

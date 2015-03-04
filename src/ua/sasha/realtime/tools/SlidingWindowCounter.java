@@ -1,5 +1,5 @@
 //package storm.starter.tools;
-package udacity.storm.tools;
+package ua.sasha.realtime.tools;
 
 import java.io.Serializable;
 import java.util.Map;
