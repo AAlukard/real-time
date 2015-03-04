@@ -38,14 +38,14 @@ public class ParseTweetBolt extends BaseRichBolt
     Status tweet = (Status) tuple.getValue(0);
     HashtagEntity[] hashtags = tweet.getHashtagEntities();
     for (HashtagEntity hashtagEntity : hashtags) {
-      collector.emit(new Values(hashtagEntity.getText()));
+      collector.emit(new Values(hashtagEntity.getText(), tweet.getText()));
     }
   }
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer declarer)
   {
-    declarer.declare(new Fields("hashtag"));
+    declarer.declare(new Fields("hashtag", "tweet"));
   }
 
 }

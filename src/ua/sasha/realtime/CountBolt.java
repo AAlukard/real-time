@@ -41,6 +41,7 @@ public class CountBolt extends BaseRichBolt
   {
     // get the word from the 1st column of incoming tuple
     String hashtag = tuple.getString(0);
+    String tweet = tuple.getString(1);
 
     // check if the word is present in the map
     if (countMap.get(hashtag) == null) {
@@ -57,12 +58,12 @@ public class CountBolt extends BaseRichBolt
     }
 
     // emit the word and count
-    collector.emit(new Values(hashtag, countMap.get(hashtag)));
+    collector.emit(new Values(hashtag, countMap.get(hashtag), tweet));
   }
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer)
   {
-    outputFieldsDeclarer.declare(new Fields("hashtag","count"));
+    outputFieldsDeclarer.declare(new Fields("hashtag","count", "tweet"));
   }
 }
