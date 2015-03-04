@@ -40,33 +40,29 @@ public class CountBolt extends BaseRichBolt
   public void execute(Tuple tuple)
   {
     // get the word from the 1st column of incoming tuple
-    String word = tuple.getString(0);
+    String hashtag = tuple.getString(0);
 
     // check if the word is present in the map
-    if (countMap.get(word) == null) {
+    if (countMap.get(hashtag) == null) {
 
       // not present, add the word with a count of 1
-      countMap.put(word, 1L);
+      countMap.put(hashtag, 1L);
     } else {
 
       // already there, hence get the count
-      Long val = countMap.get(word);
+      Long val = countMap.get(hashtag);
 
       // increment the count and save it to the map
-      countMap.put(word, ++val);
+      countMap.put(hashtag, ++val);
     }
 
     // emit the word and count
-    collector.emit(new Values(word, countMap.get(word)));
+    collector.emit(new Values(hashtag, countMap.get(hashtag)));
   }
 
   @Override
   public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer)
   {
-    // tell storm the schema of the output tuple for this spout
-    // tuple consists of a two columns called 'word' and 'count'
-
-    // declare the first column 'word', second column 'count'
-    outputFieldsDeclarer.declare(new Fields("word","count"));
+    outputFieldsDeclarer.declare(new Fields("hashtag","count"));
   }
 }

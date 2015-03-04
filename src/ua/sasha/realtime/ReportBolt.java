@@ -7,6 +7,7 @@ import backtype.storm.topology.base.BaseRichBolt;
 import backtype.storm.tuple.Tuple;
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
+import org.apache.log4j.Logger;
 import ua.sasha.realtime.tools.Rankable;
 import ua.sasha.realtime.tools.Rankings;
 
@@ -19,6 +20,7 @@ public class ReportBolt extends BaseRichBolt
 {
   // place holder to keep the connection to redis
   transient RedisConnection<String,String> redis;
+  private static final Logger LOG = Logger.getLogger(ReportBolt.class);
 
   @Override
   public void prepare(
@@ -43,17 +45,6 @@ public class ReportBolt extends BaseRichBolt
       Long count = r.getCount();
       redis.publish("WordCountTopology", word + "|" + Long.toString(count));
     }
-
-    // access the first column 'word'
-    //String word = tuple.getStringByField("word");
-
-    // access the second column 'count'
-    //String word = rankedWords.toString();
-    //Integer count = tuple.getIntegerByField("count");
-    //Long count = new Long(100);
-
-    // publish the word count to redis using word as the key
-    //redis.publish("WordCountTopology", word + ":" + Long.toString(count));
   }
 
   public void declareOutputFields(OutputFieldsDeclarer declarer)
