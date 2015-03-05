@@ -87,7 +87,7 @@ public abstract class AbstractRankerBolt extends BaseBasicBolt {
     }
   }
 
-  abstract void updateRankingsWithTuple(Tuple tuple);
+  protected abstract void updateRankingsWithTuple(Tuple tuple);
 
   private void emitRankings(BasicOutputCollector collector) {
     collector.emit(new Values(rankings.copy()));
@@ -106,5 +106,5 @@ public abstract class AbstractRankerBolt extends BaseBasicBolt {
     return conf;
   }
 
-  abstract Logger getLogger();
+    protected abstract Logger getLogger();
 }

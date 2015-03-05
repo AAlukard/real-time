@@ -6,6 +6,7 @@ import backtype.storm.StormSubmitter;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
 import backtype.storm.utils.Utils;
+import ua.sasha.realtime.ranking.IntermediateTweetRankingsBolt;
 
 
 class TopNTweetTopology
@@ -31,9 +32,9 @@ class TopNTweetTopology
 
     builder.setBolt("count-bolt", new CountBolt(), 15).fieldsGrouping("parse-tweet-bolt", new Fields("hashtag"));
 
-    builder.setBolt("intermediate-ranker", new IntermediateRankingsBolt(TOP_N), 4).fieldsGrouping("count-bolt", new Fields("hashtag"));
+    builder.setBolt("intermediate-ranker", new IntermediateTweetRankingsBolt(TOP_N), 4).fieldsGrouping("count-bolt", new Fields("hashtag"));
 
-    builder.setBolt("total-ranker", new TotalRankingsBolt(TOP_N), 1).globalGrouping("intermediate-ranker");
+    builder.setBolt("total-ranker", new TotalRankingsBolt(TOP_N, 5), 1).globalGrouping("intermediate-ranker");
 
     builder.setBolt("report-bolt", new ReportBolt(), 1).globalGrouping("total-ranker");
 
